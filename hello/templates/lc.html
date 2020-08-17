@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form>
+		<input type="hidden" name="username" value="{{username}}" id="u">
+		<input type="hidden" name="password" value="{{password}}" id="p"> 
+	</form>
+</body>
+<script type="text/javascript">
+	var u=document.getElementById("u").value;
+	var p=document.getElementById("p").value;
+	if(u=="admin" && p=="12345678")
+	{
+		alert("success");
+		localStorage.setItem("uid","1");
+		window.location='/';
+	}
+	else
+	{
+		alert("Invalid Username or Password");
+		window.location='/login/';
+	}
+</script>
+</html>

@@ -1,0 +1,66 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CarGo</title>
+    {% include "hlink.html" %}
+     
+<style type="text/css">
+  .manage_category_css{
+   background-color: #ffffff;
+  }
+
+</style>
+</head>
+<body>
+    {% include "sidebar.html" %}
+  {% include "navbar.html" %}
+<div id="main">
+   <div style="width: 100%; height: 50px; color: white;">
+   </div>
+   <div>
+     <h2 align="center" style="color: #8600b3;">Manage Category</h2>
+     <a href="/add_category/" class="btn btn-success">Add New Category</a>
+         <table class="table table-striped"align="center" border="1">
+            <thead>
+                  <tr>
+                     <th>SL no.</th>
+                     <th>Name</th>
+                     <th>GST</th>
+                     <th>Edit</th>
+                     <th>Delete</th>
+                  </tr>
+            </thead>
+            <tbody>
+              {% for c in cat %}
+                  <tr>
+                     <td>{{c.id}}</td>
+                     <td>{{c.cat_name}}</td>
+                     <td>{{c.cat_gst}}</td>
+                     <td>
+                       <form action="/add_category/" method="post">
+            <input type="hidden" value="/manage_category/" name="page">
+            <input type="hidden" value="{{c.cat_name}}" name="cat_name">
+            <input type="hidden" value="{{c.cat_gst}}" name="cat_gst">
+            <input type="hidden" value="{{c.id}}" name="did">
+            <input type="submit" value="edit" class="btn btn-primary" onclick="return confirm('tumi ki sure?')">
+            
+          </form>
+                     </td>
+                     <td>
+                      <form action="/delete/" method="post">
+                        <input type="hidden" name="page" value="/manage_category/">
+                        <input type="hidden" name="msg" value="Category deleted successfully, Click on 'OK'">
+                        <input type="hidden" name="check" value="1">
+                        <input type="hidden" name="did" value="{{c.id}}">
+                        <input type="submit" value="DELETE" onclick="return confirm('Are you sure?')" class="btn btn-danger">
+                      </form>
+                    </td>
+                  </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+   </div>
+</div>
+</body>
+</html>

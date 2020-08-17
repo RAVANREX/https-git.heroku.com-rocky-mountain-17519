@@ -1,0 +1,58 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CarGo</title>
+
+{% include "hlink.html" %}
+<script type="text/javascript" src="{% static 'linechart.js' %}"></script> 
+
+<style type="text/css">
+  .report_css{
+   background-color: #ffffff;
+  }
+
+</style>   
+
+</head>
+<body>
+  {% include "sidebar.html" %}
+  {% include "navbar.html" %}
+<div id="main" >
+   <div style="width: 100%; height: 50px; color: white;">
+   </div>
+    <div class="container" style="text-align: center">
+              <h2 > Balance Sheet</h2>
+              <p>Date: <input type="date" name=""> To <input type="date" name=""></p>
+    </div>
+        
+
+<div class="container">
+  <div class="row">
+  <div class="col-md-12">
+      <div id="curve_chart" style="width: 100%; height: 500px"></div>
+  </div>
+</div>
+</div>
+<div class="container">
+  <table cellpadding="15" align="center" border="1px">
+    <thead>
+      <th>Sl No.</th>
+      <th>Parts Name</th>
+      <th>No. of Unit Sold</th>
+      <th>Total Revenue</th>
+    </thead>
+    <tbody>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tbody>
+    
+  </table>
+
+</div>
+</div>
+</body>
+
+</html>

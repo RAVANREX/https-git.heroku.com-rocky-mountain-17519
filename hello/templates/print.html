@@ -1,0 +1,34 @@
+{% load staticfiles %}
+{% include "hlink.html" %}
+
+<div class="container" align="left" >
+<div align="center"><h1>CARGO </h1>
+     <h2>sellers bill</h2></div>
+
+
+
+
+   <div style="width: 100%; height: 50px; color: white;">
+   </div>
+   <div>
+    <h2 align="center" style="color: #8600b3;">Invoice no      :{{psel.id}}</h2>
+     
+           
+                  <div  class="col-xl-4 col-sm-4 mb-4">
+                     
+                     <h4>Customer Name   :    {{psel.cname}}</h4><br>
+<h4>                     Customer Number :    {{psel.cnumber}}</h4><br>
+<h4>                     Product Name    :    {{psel.pname}}</h4><br>
+<h4>                     Unit Price      :    {{psel.unitprice}}</h4><br>
+<h4>                     Qty             :    {{psel.qty}}</h4><br>
+<h4>                     GST             :    {{psel.gst}}</h4><br>
+<h4>                     Discount        :    {{psel.dis}}</h4><br>
+<h4>                     Total           :    {{psel.total}}</h4>
+
+</div>
+                    
+  </div>
+   </div>
+<script type="text/javascript">
+  window.print();
+</script>

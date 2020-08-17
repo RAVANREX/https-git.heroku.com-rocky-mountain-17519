@@ -1,0 +1,193 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CarGo</title>
+	{% include "hlink.html" %}
+
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+
+  $('.counter').each(function() {
+    var $this = $(this),
+        countTo = $this.attr('data-count');
+
+    $({ countNum: $this.text()}).animate({
+      countNum: countTo
+    },
+
+    {
+
+      duration: 3000,
+      easing:'linear',
+      step: function() {
+        $this.text(Math.floor(this.countNum));
+      },
+      complete: function() {
+        $this.text(this.countNum);
+      }
+    });
+  });
+
+});
+
+  </script>
+
+      <script src = "https://code.highcharts.com/highcharts.js"></script>  
+      <script src = "https://code.highcharts.com/highcharts-3d.js"></script>
+      <script type="text/javascript">
+        $(document).ready(function() {  
+            var chart = {
+               type: 'pie',
+               options3d: {
+                  enabled: true,
+                  alpha: 45         
+               }
+            };
+            var title = {
+               text: 'Contents of Product in stock'   
+            };   
+            var subtitle = {
+               text: '3D donut in Highcharts'
+            };  
+            var plotOptions = {
+               pie: {
+                  innerSize: 100,
+                  depth: 45
+               }
+            };   
+            var series = [{
+               name: 'Delivered amount',
+               data: [
+
+               {% for i in oc %}
+
+                  ['{{i.pdt_name}}', {{i.qty}} ],
+
+                  {% endfor %}
+                  
+               ]
+            }];     
+            
+            var json = {};   
+            json.chart = chart; 
+            json.title = title;       
+            json.subtitle = subtitle; 
+            json.plotOptions = plotOptions; 
+            json.series = series;   
+            $('#pie1').highcharts(json);
+           
+         });
+        
+
+
+      </script>
+
+
+    <!--/ pie chart file ends here-->
+
+<style type="text/css">
+  .index_css{
+   background-color: #ffffff;
+  }
+
+</style>
+</head>
+<body>
+	{% include "sidebar.html" %}
+  {% include "navbar.html" %}
+
+<div id="main">
+   <div style="width: 100%; height: 50px; color: white; margin-top: 15px">
+   </div>
+   <div>
+    <!-- card container as row  -->
+           <div class="row">
+            <!-- card 1 container  -->
+            <div class="col-sm-4">
+              <div class="card text-white bg-primary o-hidden h-100">
+              <div class="card-body">
+                <h3><span class="counter"  data-count="{{d}}">0</span></h3>
+              </div>
+              <a class="card-footer text-white clearfix small z-1" href="#">
+                <span class="float-left">STOCK PRODUCT AMMOUNT</span>
+                
+              </a>
+            </div>
+
+            
+          </div>
+          <!-- /card 1 container  -->
+          <!-- card 2 container  -->
+          <div class="col-sm-4">
+            <div class="card text-white bg-success o-hidden h-100">
+              <div class="card-body">
+                
+                <h3><span class="counter"  data-count="{{f}}">0</span></h3>
+              </div>
+              <a class="card-footer text-white clearfix small z-1" href="#">
+                <span class="float-left">SELL PRODUCT AMMOUNT</span>
+                
+              </a>
+            </div>
+          </div>
+          <!-- /card 2 container  -->
+          <!-- card 3 container  -->
+
+          <div class="col-sm-4">
+            <div class="card text-white bg-warning o-hidden h-100">
+              <div class="card-body">
+                <h3><span class="counter"  data-count="{{y}}">0</span></h3>
+                
+              </div>
+              <a class="card-footer text-white clearfix small z-1" href="#">
+                <span class="float-left">STOCK PRODUCT - SELL PRODUCT</span>
+                
+              </a>
+            </div>
+          </div>
+          <!-- /card 3 container  -->
+          
+
+
+
+      </div>
+      <!-- /card container as row   -->
+      <!--Pie Chart-->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+       <div id="pie1"></div>
+     </div>
+      <div class="col-md-6">
+      
+      {% for i in oc %}
+      {% with v=i.qty %}
+       {{v}}
+      {% if v == 9 %}
+
+                  {{i.pdt_name}} {{v}}
+                  
+      {% endif %}
+      {% endwith %}
+
+
+      {% endfor %}
+
+
+    </div>
+  </div>
+</div>
+
+
+      <!--/Pie Chart-->
+   </div>
+  
+</div>
+
+</body>
+
+
+
+</html>

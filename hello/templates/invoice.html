@@ -1,0 +1,120 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CarGo</title>
+  {% include "hlink2.html" %}
+<!--script type="text/javascript" src="{% static 'invoice.js'%}"></script-->
+
+<script type="text/javascript"></script>
+
+
+
+
+
+<style type="text/css">
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+  
+
+  </style>
+
+  <style type="text/css">
+  .invoice_css{
+   background-color: #ffffff;
+  }
+
+</style>
+
+
+
+
+</head>
+<body>
+  {% include "sidebar.html" %}
+  {% include "navbar.html" %}
+
+        
+        <div id="main">
+          <div style="width: 100%; height: 50px; color: white;">
+   </div>
+          
+
+
+
+            
+<form action="/invoice_hid/" name="frm" method="post">
+
+<table>
+  <tr>
+      <td><p>Coustomer Name</p>{{msg}}</td>
+      <td><p><input type="text" name="cname" placeholder="Enter Name" required=""></p></td>
+      <td><p>Coustomer number</p></td>
+      <td><p><input type="number" minlength="5" maxlength="13" name="cnumber" placeholder="Enter Number" required=""></p></td>
+      <td><p>GST</p></td>
+      <td><p><input type="number" id="gst" name="gst" placeholder="%" required=""></p></td>
+      <td><p>Discount</p></td>
+      <td><p><input type="number" id="dis" name="dis" placeholder="Ammount" required=""></p></td>
+    </tr>
+    </table>
+    
+    <INPUT type="button" value="Add Row" onclick="addRow('dataTable')" />
+
+  <INPUT type="button" value="Delete Row" onclick="deleteRow('dataTable')" />
+
+
+  
+<table id="dataTable" cellspacing="0" border=1>
+    <tr>
+      <td><INPUT type="checkbox" name="chk"/></td>
+      <td><select name="pname" required="">
+        <option>--Select Product--</option>
+        {% for i in p %}
+
+            <option value="{{i.pdt_name}}">{{i.pdt_name}}</option>
+            {% endfor %}
+          </select></td>
+      <td><input type="number" min="1" id="qty" name="qty" Placeholder="Quantity" required=""></td>
+      <td><input type="number" id="unitprice" name="unitprice" placeholder="Unit Price" required=""></td>
+    </tr>
+</table>
+<input type="submit" value="Submit"> 
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;<span id="result"></span></h3>   
+</form>
+    
+  </div>
+    
+  
+
+  
+     
+
+  
+  
+  
+
+
+</body>
+
+</html>
+
+
+
+
+
+

@@ -1,0 +1,55 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CarGo</title>
+    {% include "hlink.html" %}
+
+
+    <script type="text/javascript">
+      
+     
+
+    </script>
+    
+<style type="text/css">
+    .frm p input,select
+    {
+      width: 250px;
+      border-radius: 2px;
+    }
+</style>
+<style type="text/css">
+  .add_product_css{
+   background-color: #ffffff;
+  }
+</style>
+
+</head>
+<body>
+    {% include "sidebar.html" %}
+  {% include "navbar.html" %}
+<div id="main">
+   <div style="width: 100%; height: 50px; color: white;">
+   </div>
+   <div>
+    <h2 align="center" style="color: #8600b3;">Add Product</h2>
+    <form align="center" method="post" action="/add_pdt_hid/" class="frm">
+      <p><h4>Product Name</h4><span style="color: red;">{{msg}}</span></p>
+      <p><input type="text" name="pdt_name"  value="{{pdt_name}}" placeholder="Product name" required=""></p>
+      <p><h4>Price</h4></p>
+      <p><input type="number" name="pdt_price" value="{{pdt_price}}" placeholder="Enter Price in Rs"  required=""></p>
+         <input type="hidden" name="did" value="{{did}}" >
+      <p><h4>Category</h4></p>
+      <p><select name="pdt_cat" class="dropdown-toggle">
+        <option>--Select--</option>
+        {% for i in p %}
+            <option value="{{i.cat_name}}">{{i.cat_name}}</option>
+            {% endfor %}
+      </select></p>
+      <p><button class="btn btn-primary">Add</button>
+    </form>
+   </div>
+</div>
+</body>
+</html>

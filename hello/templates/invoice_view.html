@@ -1,0 +1,131 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CarGo</title>
+  {% include "hlink.html" %}
+
+
+
+<style type="text/css">
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+  #f{background-color: #ebe4c0;
+    padding: 5px;
+    padding-top: 50px;
+    position: absolute;
+      right: 0px;
+    height: 100%;
+  }
+  .g{
+    overflow-y: scroll;
+  }
+  .m{
+    width: 86%;
+    overflow-x: scroll;
+  }
+  
+
+  </style>
+
+  <style type="text/css">
+  .invoice_css{
+   background-color: #ffffff;
+  }
+
+</style>
+
+
+
+
+</head>
+<body>
+  {% include "sidebar.html" %}
+  {% include "navbar.html" %}
+
+        
+        <div id="main" class="g">
+          <div style="width: 100%; height: 50px; color: white;">
+   </div>
+          <div class="row">
+
+
+
+            <div class="m" >
+
+    
+    <select >
+        <option  selected="">Coustomer</option>
+        <option >Stock transfar</option>
+        </select>
+
+<form>
+<table cellspacing="0">
+  <thead>
+  <tr>
+    <th><p>SL no.</p></th>
+    <th>Product name</th>
+    <th>Qty</th>
+    <th>Unit Price</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td><input type="text" name="ipname" required=""></td>
+      <td><input type="number" min="1" name="iqty" required=""></td>
+      <td><input type="number" min="1000" name="unitprice" required=""></td>
+    </tr>
+  </tbody>
+</table>
+    
+    
+  </div>
+    
+  
+
+    
+  <div  id="f">
+      <p>Coustomer Name</p>
+      <p><input type="text" name="cname" placeholder="Enter Name"></p>
+      <p>Coustomer number</p>
+      <p><input type="number" minlength="5" maxlength="13" name="cnumber" placeholder="Enter Number"></p>
+      <p>GST</p>
+      <p><input type="number" name="gst" placeholder="%"></p>
+      <p>Discount</p>
+      <p><input type="number" name="discount" placeholder="%"></p>
+      <p><button type="submit" class="btn btn-success">SUBMIT</button></p>
+    </form>
+
+  </div>
+
+     
+
+  </div>
+  </div>
+  
+
+
+</body>
+</html>
+
+
+
+
+
+

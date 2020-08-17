@@ -1,0 +1,107 @@
+{% load staticfiles %}
+<script type="text/javascript">
+	if(localStorage.getItem("uid")=="null" || localStorage.getItem("uid")==null)
+	{
+		window.location=/login/;
+	}
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
+  <script type="text/javascript" src="{% static 'index.js' %}"></script>
+  <script type="text/javascript">
+  	
+
+  	
+window.onload=function(){
+
+var sidebar = document.getElementById("mySidebar")
+var btn = document.getElementById("doom")
+var main = document.getElementById("main")
+
+btn.addEventListener("click",fur);
+
+
+function fur() {
+  
+  if(sidebar.style.width == "0px"){
+
+    sidebar.style.width = "250px";
+    main.style.marginLeft = "250px";
+
+  }
+   
+  else {
+  
+  sidebar.style.width = "0px";
+  main.style.marginLeft = "0px";
+  
+}
+}
+
+
+
+
+ var gst = document.getElementById("gst");
+ var dis = document.getElementById("dis");
+ var qty = document.getElementById("qty");
+ var ut = document.getElementById("unitprice");
+ var result = document.getElementById("result");
+
+ gst.addEventListener("input",add);
+ dis.addEventListener("input",add);
+ qty.addEventListener("input",add);
+ ut.addEventListener("input",add);
+ 
+ function add() {
+ var gst=parseFloat(document.getElementById("gst").value) || 0;
+ var dis=parseFloat(document.getElementById("dis").value) || 0;
+ var qty=parseFloat(document.getElementById("qty").value) || 0;
+ var ut=parseFloat(document.getElementById("unitprice").value) || 0;
+ var r=(((qty*ut)*gst/100)+(qty*ut)-dis);
+ result.innerHTML = " your  bill ammount is :"+ r;
+
+   
+ }
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+  </script>
+  
+ 
+      <!-- Latest compiled and minified CSS -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+ 
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- pie chart file start here-->
+
+     <!--Add a reference to the Chart API at google.com:-->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> 
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
+

@@ -1,0 +1,71 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CarGo</title>
+{% include "hlink.html" %}
+    
+<style type="text/css">
+  .manage_product_css{
+   background-color: #ffffff;
+  }
+
+</style>
+</head>
+<body>
+    {% include "sidebar.html" %}
+  {% include "navbar.html" %}
+<div id="main">
+   <div style="width: 100%; height: 50px; color: white;">
+   </div>
+   <div>
+    <h2 align="center" style="color: #8600b3;">Manage Product</h2>
+    <a href="/add_product/" class="btn btn-success">Add New Product</a>
+           <table class="table table-striped"align="center" border="1">
+            <thead>
+                  <tr>
+                     <th>SL no.</th>
+                     <th>Product Name</th>
+                     <th>Category</th>
+                     <th>price</th>
+                     <th>Edit</th>
+                     <th>Delete</th>
+                  </tr>
+            </thead>
+            <tbody>
+              {% for p in pdt %}
+                  <tr>
+                     <td>{{p.id}}</td>
+                     <td>{{p.pdt_name}}</td>
+                     <td>{{p.pdt_cat}}</td>
+                     <td>{{p.pdt_price}}</td>
+                     <td>
+                       <form action="/add_product/" method="post">
+            <input type="hidden" value="/manage_product/" name="page">
+            <input type="hidden" value="{{p.pdt_name}}" name="pdt_name">
+            <input type="hidden" value="{{p.pdt_price}}" name="pdt_price">
+            <input type="hidden" value="{{p.id}}" name="did">
+
+            <input type="submit" value="edit" class="btn btn-primary" onclick="return confirm('tumi ki sure?')">
+            
+          </form>
+
+                     </td>
+                     <td>
+                       <form action="/delete/" method="post">
+                        <input type="hidden" name="page" value="/manage_product/">
+                        <input type="hidden" name="msg" value="Product deleted successfully, Click on 'OK'">
+                        <input type="hidden" name="check">
+                        <input type="hidden" name="did" value="{{p.id}}">
+                        <input type="hidden" value="2" name="check">
+                        <input type="submit" value="DELETE" onclick="return confirm('Are you sure?')" class="btn btn-danger">
+                      </form>
+                     </td>
+                  </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+   </div>
+</div>
+</body>
+</html>

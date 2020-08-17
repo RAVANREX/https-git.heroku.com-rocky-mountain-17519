@@ -1,0 +1,37 @@
+{% load staticfiles %}
+
+
+    <div id="mySidebar" class="sidebar">
+  <div style="height: 20px;">
+  </div>
+
+  <div style="float: left;">
+    <div>
+  </div>
+    <p>&nbsp;&nbsp;&nbsp;<form action="/search/" method="post"><input type="number" name="search" placeholder="invoice number" style="width: 160px;"><button><i class="fa fa-search" aria-hidden="true"></i></button></form></p>
+    <p class="index_css"><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a></p>
+    <p class="import_css"><a href="/import/"><i class="fa fa-plus-square" aria-hidden="true"></i> Import</a></p>
+    <a href="#product" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-sort-amount-asc" aria-hidden="true"></i> Product</a>
+     <ul class="collapse list-unstyled" id="product">
+                        <li>
+                            <p class="add_product_css"><a href="/add_product/">Add</a></p>
+                        </li>
+                        <li>
+                            <p class="manage_product_css"><a href="/manage_product/">Manage</a></p>
+                        </li>
+                    </ul>
+    <a href="#category" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-anchor" aria-hidden="true"></i> Categories</a>
+     <ul class="collapse list-unstyled" id="category">
+                        <li >
+                            <p class="add_category_css"><a href="/add_category/">Add</a></p>
+                        </li>
+                        <li>
+                            <p class="manage_category_css"><a href="/manage_category/">Manage</a></p>
+                        </li>
+                    </ul>
+    <p class="export_css"><a href="/export/"><i class="fa fa-paper-plane" aria-hidden="true"></i> Export</a></p>
+    <p class="invoice_css"><a href="/invoice/"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Invoice</a></p>
+    <p class="report_css"><a href="/report/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Report</a></p>
+    <p class="contact_us_css"><a href="/contact_us/"><i class="fa fa-phone" aria-hidden="true"></i> Contact Us</a></p>
+  </div>
+</div>
